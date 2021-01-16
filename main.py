@@ -11,7 +11,7 @@ from .utils import *
 
 def main():
     parser = argparse.ArgumentParser(description='Transfer images to styles.')
-    parser.add_argument('--content-dir', type=str, dest='data_dir',
+    parser.add_argument('--dataset-dir', type=str, dest='data_dir',
                         help='path to content images directory',
                         )
     parser.add_argument('--chk-path', type=str, dest='weight_path',

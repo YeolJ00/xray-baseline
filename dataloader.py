@@ -16,7 +16,7 @@ class ElbowxrayDataset(Dataset):
             root_dir (string): Directory with all the images.
             transform (callable, optional): Optional transform to be applied on a sample.
         """
-        self.patient_info = pd.read_excel(xlsx_file).iloc[1:,:] # Datafram from pandas
+        self.patient_info = pd.read_excel(xlsx_file).iloc[1:,:] # Dataframe from pandas
         self.root_dir = root_dir
         self.transform = transform
 
@@ -30,8 +30,8 @@ class ElbowxrayDataset(Dataset):
         patient_number = os.path.join(self.root_dir, self.patient_info.iloc[idx, 0])
         rl = self.patient_info.iloc[idx,3]                                  # XXX check type, must be string
         rl = '' if rl == 'n' else rl
-        image = Image.open(patient_number + rl + '.tiff', as_gray = True)
-        label = float(self.patient_info.iloc[idx, 1])                       # XXX check type, must be int/float
+        image = Image.open(patient_number + rl + '.tiff')
+        label = float(self.patient_info.iloc[idx, 1])
         # readout = self.patient_info.iloc[idx, 4]
         sample = {'image': image, 'label': label}
 
