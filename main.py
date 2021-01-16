@@ -35,7 +35,7 @@ def main():
     # elbow_xray_dataset = ElbowxrayDataset(csv_file='data/elbow_aligned.xlsx', root_dir='data/imgs_tiff/', 
     #                                         transform=transforms.Compose([transforms.ToTensor(), partial(transforms.functional.resize(size=(1024,512)))])
     #                                        )
-    elbow_xray_dataset = ElbowxrayDataset(csv_file='data/elbow_aligned.xlsx', root_dir='data/imgs_tiff/', 
+    elbow_xray_dataset = ElbowxrayDataset(csv_file='data/elbow.xlsx', root_dir='data/imgs_tiff/', 
                                             transform=transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
                                            )
 
