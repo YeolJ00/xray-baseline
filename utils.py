@@ -15,6 +15,19 @@ from torch import nn
 from torch.nn import functional as F
 from torch.utils import model_zoo
 
+import humanize
+from functools import partial
+
+
+################################################################################
+### Help functions for Debugging
+################################################################################
+
+
+humanize.naturalsize(1000000, binary= True)
+
+_ns = lambda size: humanize.naturalsize(size, binary=True)
+
 
 ################################################################################
 ### Help functions for model architecture
@@ -257,6 +270,7 @@ class Conv2dStaticSamePadding(nn.Conv2d):
 
     def forward(self, x):
         x = self.static_padding(x)
+        a = x.size()
         x = F.conv2d(x, self.weight, self.bias, self.stride, self.padding, self.dilation, self.groups)
         return x
 
